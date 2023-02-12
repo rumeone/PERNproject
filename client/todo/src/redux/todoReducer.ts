@@ -8,7 +8,7 @@ export const todoReducer = (state: ITodoState = initialState, action: ITodoActio
     switch (action.type) {
         case ITodoActionTypes.CREATE_TODO:
             return {
-                todo: [...state.todos, action.payload]
+                todos: [...state.todos, action.payload]
             }
         default:
             return state;
