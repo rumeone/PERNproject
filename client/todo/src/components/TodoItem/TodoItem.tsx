@@ -5,18 +5,14 @@ export interface ITodoProps {
 }
 export const TodoItem = ({todo}: ITodoProps) => {
     return (
-        <li>
-            <div className="">
+        <li className="list-group-item d-flex justify-content-between align-items-center">
+            <div>
                 <span>{todo.title}</span>
             </div>
-            <div className="">
-                <button className="btn btn-primary">Изменить</button>
-            </div>
-            <div className="">
-                <button className="btn btn-success">Завершить</button>
-            </div>
-            <div className="">
-                <button className="btn btn-danger">Изменить</button>
+            <div className="d-flex align-items-center">
+                <button style={{marginRight: '10px'}} className="btn btn-primary flex-grow-0">Изменить</button>
+                <button style={{marginRight: '10px'}} className="btn btn-success flex-grow-0">Завершить</button>
+                <button className="btn btn-danger flex-grow-0">Удалить</button>
             </div>
         </li>
     )

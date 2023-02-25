@@ -6,8 +6,6 @@ import './styles.css'
 
 export const TodoList = () => {
     const state = useSelector((state: ITodoReducer) => state.todoReducer)
-    const dispatch = useDispatch();
-
 
     return (
         <TransitionGroup component='ul' className='list-group'>
