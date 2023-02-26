@@ -6,7 +6,7 @@ export const initialState = {
 
 export const todoReducer = (state: ITodoState = initialState, action: ITodoAction) => {
     switch (action.type) {
-        case ITodoActionTypes.CREATE_TODO:
+        case ITodoActionTypes.CREATE_TODO_SUCCESS:
             return {
                 todos: [...state.todos, action.payload]
             }

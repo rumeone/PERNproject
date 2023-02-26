@@ -18,8 +18,7 @@ export const TodoForm = () => {
             done: false
         };
 
-        //@ts-ignore
-        dispatch(createTodo(todoObject));
+        dispatch(createTodo(title));
         setTitle('');
     }
 
