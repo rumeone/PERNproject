@@ -21,6 +21,12 @@ export interface ITodoState {
     todos: ITodo[]
 }
 
+export interface IEditTodo {
+    title: string,
+    id: string,
+    done: boolean
+}
+
 export interface ICreateAction {
     type: ITodoActionTypes.CREATE_TODO_SUCCESS | ITodoActionTypes.CREATE_TODO,
     payload: string
@@ -41,13 +47,14 @@ export interface ICompleteAction<T> {
     payload: T
 }
 
-export interface ICompleteAction<T> {
-    type: ITodoActionTypes.COMPLETE_TODO_SUCCESS | ITodoActionTypes.COMPLETE_TODO,
-    payload: T
+export interface IEditAction {
+    type: ITodoActionTypes.EDIT_TODO_SUCCESS | ITodoActionTypes.EDIT_TODO,
+    payload: IEditTodo,
+    id: string;
 }
-
-export type ITodoAction = ICreateAction | IDeleteAction | IGetAction | ICompleteAction<ITodo | string>;
 
 export interface ITodoReducer {
     todoReducer: ITodoState
 }
+
+export type ITodoAction = ICreateAction | IDeleteAction | IGetAction | ICompleteAction<ITodo | string> | IEditAction;

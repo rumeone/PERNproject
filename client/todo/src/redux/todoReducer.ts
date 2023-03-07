@@ -26,6 +26,18 @@ export const todoReducer = (state: ITodoState = initialState, action: ITodoActio
 
             return {...state, todos: newTodos}
         }
+        case ITodoActionTypes.EDIT_TODO_SUCCESS: {
+            const newTodos = [...state.todos];
+            const completeIndex = state.todos.findIndex(todo => todo.id === action.id);
+
+            if(completeIndex === -1) {
+                return state;
+            }
+
+            newTodos[completeIndex] = action.payload;
+
+            return {...state, todos: newTodos}
+        }
         default:
             return state;
     }
