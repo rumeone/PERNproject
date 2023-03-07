@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { ITodoReducer } from '../../types/types';
 import { TodoItem } from "../TodoItem/TodoItem";
 import './styles.css'
-import {deleteTodo} from "../../redux/actions";
+import {completeTodo, deleteTodo} from "../../redux/actions";
 
 export const TodoList = () => {
     const state = useSelector((state: ITodoReducer) => state.todoReducer);
@@ -11,6 +11,10 @@ export const TodoList = () => {
     const removeTodo = (id:string) => {
         dispatch(deleteTodo(id));
 
+    }
+
+    const doneTodo = (id:string, done: boolean) => {
+        dispatch(completeTodo(id, done));
     }
 
     return (
@@ -24,6 +28,7 @@ export const TodoList = () => {
                     <TodoItem
                         todo={todo}
                         deleteTodo={removeTodo}
+                        doneTodo={doneTodo}
                     />
                 </CSSTransition>
             ))}
