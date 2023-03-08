@@ -8,9 +8,16 @@ export enum ITodoActionTypes {
     EDIT_TODO = "CHANGE_TODO",
     EDIT_TODO_SUCCESS = "EDIT_TODO_SUCCESS",
     DELETE_TODO = "DELETE_TODO",
-    DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS"
+    DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS",
+    SHOW_ALERT = "SHOW_ALERT",
+    HIDE_ALERT = "HIDE_ALERT"
 }
 
+
+export interface IAlertState {
+    alertText: string,
+    alertStatus: string
+}
 export interface ITodo {
     id: string,
     title: string,
@@ -57,4 +64,22 @@ export interface ITodoReducer {
     todoReducer: ITodoState
 }
 
+export interface IEditAction {
+    type: ITodoActionTypes.EDIT_TODO_SUCCESS | ITodoActionTypes.EDIT_TODO,
+    payload: IEditTodo,
+    id: string;
+}
+
+export interface IShowAlertAction {
+    type: ITodoActionTypes.SHOW_ALERT,
+    payload: string,
+    status: string;
+}
+
+export interface IHideAlertAction {
+    type: ITodoActionTypes.HIDE_ALERT,
+}
+
+
 export type ITodoAction = ICreateAction | IDeleteAction | IGetAction | ICompleteAction<ITodo | string> | IEditAction;
+export type IAlertAction = IShowAlertAction | IHideAlertAction;

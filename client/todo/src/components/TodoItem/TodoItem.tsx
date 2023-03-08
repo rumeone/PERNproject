@@ -32,7 +32,7 @@ export const TodoItem = ({todo, deleteTodo, doneTodo, changeTodo}: ITodoProps) =
             `todo-item list-group-item d-flex justify-content-between align-items-center
             ${todo.done ? 'list-group-item-success' : ''}`
         }>
-            <div onKeyPress={handleSubmit}>
+            <div onKeyDown={handleSubmit}>
                 {isTodoEdit ? <input type="text" onChange={handleTitleChange}/> : <span className={`${todo.done ? `title-done` : ''}`}>{todo.title}</span>}
             </div>
             <div className="d-flex align-items-center">
